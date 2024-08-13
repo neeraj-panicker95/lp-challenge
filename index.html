@@ -35,7 +35,7 @@
             window.lpTag = {
                 wl: lpTag.wl || null,
                 scp: lpTag.scp || null,
-                site: '9994318' || '',
+                site: '9994318', // Replace with your LivePerson Site ID
                 section: lpTag.section || '',
                 tagletSection: lpTag.tagletSection || null,
                 autoStart: lpTag.autoStart !== false,
@@ -130,7 +130,11 @@
 
     <script>
         function openLivePersonChat() {
-            lpTag.taglets.launchChat();
+            if (typeof lpTag.taglets.chatStart === 'function') {
+                lpTag.taglets.chatStart();
+            } else {
+                alert("LivePerson chat function not available.");
+            }
         }
     </script>
 
