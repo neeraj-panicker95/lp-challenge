@@ -1,146 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Webpage with LivePerson Chat</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            height: 100vh;
-            user-select: none; /* Standard property */
-            -webkit-user-select: none; /* Safari */
-        }
+    <head>
+        <!-- BEGIN LivePerson Monitor. -->
+<script type="text/javascript">
+    window.lpTag = window.lpTag || {};
 
-        .chat-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            z-index: 1000;
-            user-select: none; /* Standard property */
-            -webkit-user-select: none; /* Safari */
-        }
-    </style>
-
-    <!-- LivePerson Chat Script -->
-    <script type="text/javascript">
-        window.lpTag = window.lpTag || {};
-        if (typeof window.lpTag._tagCount === 'undefined') {
-            window.lpTag = {
-                wl: lpTag.wl || null,
-                scp: lpTag.scp || null,
-                site: '9994318', // Replace with your LivePerson Site ID
-                section: lpTag.section || '',
-                tagletSection: lpTag.tagletSection || null,
-                autoStart: lpTag.autoStart !== false,
-                ovr: lpTag.ovr || {},
-                _v: '1.10.0',
-                _tagCount: 1,
-                protocol: 'https:',
-                events: {
-                    bind: function (t, e, i) {
-                        lpTag.defer(function () {
-                            lpTag.events.bind(t, e, i);
-                        }, 0);
-                    },
-                    trigger: function (t, e, i) {
-                        lpTag.defer(function () {
-                            lpTag.events.trigger(t, e, i);
-                        }, 1);
-                    }
-                },
-                defer: function (t, e) {
-                    if (e === 0) {
-                        this._defB = this._defB || [];
-                        this._defB.push(t);
-                    } else if (e === 1) {
-                        this._defT = this._defT || [];
-                        this._defT.push(t);
-                    } else {
-                        this._defL = this._defL || [];
-                        this._defL.push(t);
-                    }
-                },
-                load: function (t, e, i) {
-                    var n = this;
-                    setTimeout(function () {
-                        n._load(t, e, i);
+    if (typeof window.lpTag._tagCount === 'undefined') {
+        window.lpTag = {
+            wl: lpTag.wl || null,
+            scp: lpTag.scp || null,
+            site: '9994318' || '',
+            section: lpTag.section || '',
+            tagletSection: lpTag.tagletSection || null,
+            autoStart: lpTag.autoStart !== false,
+            ovr: lpTag.ovr || {},
+            _v: '1.10.0',
+            _tagCount: 1,
+            protocol: 'https:',
+            events: {
+                bind: function (t, e, i) {
+                    lpTag.defer(function () {
+                        lpTag.events.bind(t, e, i);
                     }, 0);
                 },
-                _load: function (t, e, i) {
-                    var n = t;
-                    t = t || this.protocol + '//' + (this.ovr && this.ovr.domain ? this.ovr.domain : 'lptag.liveperson.net') + '/tag/tag.js?site=' + this.site;
-                    var o = document.createElement('script');
-                    o.setAttribute('charset', e ? e : 'UTF-8');
-                    if (i) o.setAttribute('id', i);
-                    o.setAttribute('src', n);
-                    document.getElementsByTagName('head').item(0).appendChild(o);
-                },
-                init: function () {
-                    this._timing = this._timing || {};
-                    this._timing.start = new Date().getTime();
-                    var t = this;
-                    if (window.attachEvent) {
-                        window.attachEvent('onload', function () {
-                            t._domReady('domReady');
-                        });
-                    } else {
-                        window.addEventListener('DOMContentLoaded', function () {
-                            t._domReady('contReady');
-                        }, false);
-                        window.addEventListener('load', function () {
-                            t._domReady('domReady');
-                        }, false);
-                    }
-                    if (typeof window._lptStop === 'undefined') this.load();
-                },
-                start: function () {
-                    this.autoStart = true;
-                },
-                _domReady: function (t) {
-                    if (!this.isDom) {
-                        this.isDom = true;
-                        this.events.trigger('LPT', 'DOM_READY', { t: t });
-                    }
-                    this._timing[t] = new Date().getTime();
-                },
-                vars: lpTag.vars || [],
-                dbs: lpTag.dbs || [],
-                ctn: lpTag.ctn || [],
-                sdes: lpTag.sdes || [],
-                hooks: lpTag.hooks || [],
-                identities: lpTag.identities || [],
-                ev: lpTag.ev || []
-            };
-            lpTag.init();
-        } else {
-            window.lpTag._tagCount += 1;
-        }
-    </script>
-</head>
-<body>
+                trigger: function (t, e, i) {
+                    lpTag.defer(function () {
+                        lpTag.events.trigger(t, e, i);
+                    }, 1);
+                }
+            },
+            defer: function (t, e) {
+                if (e === 0) {
+                    this._defB = this._defB || [];
+                    this._defB.push(t);
+                } else if (e === 1) {
+                    this._defT = this._defT || [];
+                    this._defT.push(t);
+                } else {
+                    this._defL = this._defL || [];
+                    this._defL.push(t);
+                }
+            },
+            load: function (t, e, i) {
+                var n = this;
+                setTimeout(function () {
+                    n._load(t, e, i);
+                }, 0);
+            },
+            _load: function (t, e, i) {
+                var n = t;
+                if (!t) {
+                    n = this.protocol + '//' + 
+                        (this.ovr && this.ovr.domain ? this.ovr.domain : 'lptag.liveperson.net') + 
+                        '/tag/tag.js?site=' + this.site;
+                }
+                var o = document.createElement('script');
+                o.setAttribute('charset', e ? e : 'UTF-8');
+                if (i) o.setAttribute('id', i);
+                o.setAttribute('src', n);
+                document.getElementsByTagName('head').item(0).appendChild(o);
+            },
+            init: function () {
+                this._timing = this._timing || {};
+                this._timing.start = (new Date()).getTime();
+                var t = this;
+                if (window.attachEvent) {
+                    window.attachEvent('onload', function () {
+                        t._domReady('domReady');
+                    });
+                } else {
+                    window.addEventListener('DOMContentLoaded', function () {
+                        t._domReady('contReady');
+                    }, false);
+                    window.addEventListener('load', function () {
+                        t._domReady('domReady');
+                    }, false);
+                }
+                if (typeof window._lptStop === 'undefined') this.load();
+            },
+            start: function () {
+                this.autoStart = true;
+            },
+            _domReady: function (t) {
+                if (!this.isDom) {
+                    this.isDom = true;
+                    this.events.trigger('LPT', 'DOM_READY', { t: t });
+                }
+                this._timing[t] = (new Date()).getTime();
+            },
+            vars: lpTag.vars || [],
+            dbs: lpTag.dbs || [],
+            ctn: lpTag.ctn || [],
+            sdes: lpTag.sdes || [],
+            hooks: lpTag.hooks || [],
+            identities: lpTag.identities || [],
+            ev: lpTag.ev || []
+        };
+        lpTag.init();
+    } else {
+        window.lpTag._tagCount += 1;
+    }
+</script>
+<!-- END LivePerson Monitor. -->
 
-    <button class="chat-button" onclick="openLivePersonChat()">Chat with Us</button>
 
-    <script>
-        function openLivePersonChat() {
-            if (typeof lpTag.taglets.chatStart === 'function') {
-                lpTag.taglets.chatStart();
-            } else {
-                alert("LivePerson chat function not available.");
+    </head>
+    <body>
+        <script type="text/javascript">
+          lpTag.sdes = lpTag.sdes || [];
+          lpTag.sdes.push(
+            {
+              "type": "cart", //MANDATORY
+              "total": 11.7, //TOTAL VALUE OF THE CART AFTER DISCOUNT
+              "currency": "USD", //CURRENCY CODE
+              "numItems": 6, //NUMBER OF ITEMS IN CART
+              "products": [{
+                "product": {
+                  "name": "prod1", //PRODUCT NAME
+                  "category": "category", //PRODUCT CATEGORY NAME
+                  "sku": "sku", //PRODUCT SKU OR UNIQUE IDENTIFIER
+                  "price": 7.8, //SINGLE PRODUCT PRICE
+                  "quantity": 1 //NUMBER OF PRODUCTS
+                }
+              }]
             }
-        }
-    </script>
-
-</body>
+          );
+        </script>
+      </body>
+      
 </html>
