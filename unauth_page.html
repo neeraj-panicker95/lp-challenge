@@ -109,8 +109,10 @@
     <body>
         <script type="text/javascript">
           lpTag.sdes = lpTag.sdes || [];
+          const engagementId = lpTag.taglets.LP_EVENTS.getEngagementDetails().engagementId;
           lpTag.sdes.push(
             {
+              "e_Id": engagementId;
               "type": "cart", //MANDATORY
               "Cart Value": 11.7, //TOTAL VALUE OF THE CART AFTER DISCOUNT
             }
