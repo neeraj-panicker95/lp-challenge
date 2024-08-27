@@ -143,13 +143,6 @@
     </style>
 </head>
 <body>
-    lpTag.sdes = lpTag.sdes || [];
-          lpTag.sdes.push(
-            {
-              "type": "cart", //MANDATORY
-              "Cart Value": 11.7, //TOTAL VALUE OF THE CART AFTER DISCOUNT
-            }
-          );
     <div class="container">
         <h1>Welcome to LP-Brand (Unauthenticated)</h1>
         <p>Please log in to access more features.</p>
@@ -157,6 +150,13 @@
     </div>
 
     <script>
+        lpTag.sdes = lpTag.sdes || [];
+          lpTag.sdes.push(
+            {
+              "type": "cart", //MANDATORY
+              "Cart Value": 11.7, //TOTAL VALUE OF THE CART AFTER DISCOUNT
+            }
+          );
         document.getElementById('loginBtn').addEventListener('click', function () {
             // Hardcoded JWT for example purposes
             const jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQ1Njc4OSIsIm5hbWUiOiJOZWVyYWoiLCJlbWFpbCI6Im5lZXJhai5tQHRlY2htYWhpbmRyYS5jb20ifQ.CQJe4QVJi4s5QvJ0DsRyyZivEZHMMaicNWBY4XeECqo"; // Example JWT
