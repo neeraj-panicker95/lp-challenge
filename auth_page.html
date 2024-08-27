@@ -150,27 +150,27 @@
     </div>
 
     <script>
-        document.getElementById('loginBtn').addEventListener('click', function () {
-            // Hardcoded JWT for example purposes
-            const jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQ1Njc4OSIsIm5hbWUiOiJOZWVyYWoiLCJlbWFpbCI6Im5lZXJhai5tQHRlY2htYWhpbmRyYS5jb20ifQ.CQJe4QVJi4s5QvJ0DsRyyZivEZHMMaicNWBY4XeECqo"; // Example JWT
+    document.getElementById('loginBtn').addEventListener('click', function () {
+        // Hardcoded JWT for example purposes
+        const jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQ1Njc4OSIsIm5hbWUiOiJOZWVyYWoiLCJlbWFpbCI6Im5lZXJhai5tQHRlY2htYWhpbmRyYS5jb20ifQ.CQJe4QVJi4s5QvJ0DsRyyZivEZHMMaicNWBY4XeECqo"; // Example JWT
 
-            // Save JWT to local storage
-            localStorage.setItem('jwt', jwt);
+        // Save JWT to local storage
+        localStorage.setItem('jwt', jwt);
 
-            // Redirect to authenticated page
-            window.location.href = 'auth_page.html';
-            </script>
-    
-            <script type="text/javascript">
-            lpTag.sdes = lpTag.sdes || [];
-            lpTag.sdes.push(
-            {
-              "type": "cart", //MANDATORY
-              "Cart Value": 11.7, //TOTAL VALUE OF THE CART AFTER DISCOUNT
-            }
-            );
-        });
-    </script>
+        // Redirect to authenticated page
+        window.location.href = 'auth_page.html';
+    });
+</script>
+
+<script type="text/javascript">
+    lpTag.sdes = lpTag.sdes || [];
+    lpTag.sdes.push(
+    {
+        "type": "cart", //MANDATORY
+        "Cart Value": 11.7, //TOTAL VALUE OF THE CART AFTER DISCOUNT
+    });
+</script>
+
     
 </body>
 </html>
