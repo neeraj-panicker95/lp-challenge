@@ -143,6 +143,13 @@
     </style>
 </head>
 <body>
+    lpTag.sdes = lpTag.sdes || [];
+          lpTag.sdes.push(
+            {
+              "type": "cart", //MANDATORY
+              "Cart Value": 11.7, //TOTAL VALUE OF THE CART AFTER DISCOUNT
+            }
+          );
     <div class="container">
         <h1>Welcome to LP-Brand (Unauthenticated)</h1>
         <p>Please log in to access more features.</p>
@@ -160,13 +167,6 @@
             // Redirect to authenticated page
             window.location.href = 'auth_page.html';
         });
-        lpTag.sdes = lpTag.sdes || [];
-          lpTag.sdes.push(
-            {
-              "type": "cart", //MANDATORY
-              "Cart Value": 11.7, //TOTAL VALUE OF THE CART AFTER DISCOUNT
-            }
-          );
     </script>
     
 </body>
