@@ -163,12 +163,36 @@
 </script>
 
 <script type="text/javascript">
-    lpTag.sdes = lpTag.sdes || [];
-    lpTag.sdes.push(
-    {
-        "type": "cart", //MANDATORY
-        "Cart Value": 11.7, //TOTAL VALUE OF THE CART AFTER DISCOUNT
-    });
+    var cartTotal = 150.00; // Replace with your actual cart total value retrieval logic
+
+// Send the Page Title using a pageView SDE
+lpTag.sdes.push({
+  "type": "pageView", 
+  "view": {
+    "current": {
+      "url": window.location.href,
+      "title": document.title
+    }
+  }
+});
+
+// Send the Cart Total using a cart SDE
+lpTag.sdes.push({
+  "type": "cart",
+  "total": {
+    "currency": "USD",  // Replace with the appropriate currency code
+    "amount": cartTotal
+  },
+  "products": [
+    // Optionally, you can include individual products here
+    // {
+    //   "name": "Product 1",
+    //   "category": "Category 1",
+    //   "price": 50.00,
+    //   "quantity": 2
+    // }
+  ]
+});
 </script>
 
     
