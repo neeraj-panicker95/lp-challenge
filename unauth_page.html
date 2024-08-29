@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <script type="text/javascript">
         window.lpTag = window.lpTag || {};
-    
+
         if (typeof window.lpTag._tagCount === 'undefined') {
             window.lpTag = {
                 wl: lpTag.wl || null,
@@ -49,8 +50,8 @@
                 _load: function (t, e, i) {
                     var n = t;
                     if (!t) {
-                        n = this.protocol + '//' + 
-                            (this.ovr && this.ovr.domain ? this.ovr.domain : 'lptag.liveperson.net') + 
+                        n = this.protocol + '//' +
+                            (this.ovr && this.ovr.domain ? this.ovr.domain : 'lptag.liveperson.net') +
                             '/tag/tag.js?site=' + this.site;
                     }
                     var o = document.createElement('script');
@@ -103,7 +104,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unauthenticated Space</title>
+    <title>Login - LP-Brand Site</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -113,28 +114,38 @@
             padding: 20px;
         }
 
-        h1 {
-            color: #007BFF;
-        }
-
         .container {
-            margin: 20px;
+            margin: 50px auto;
             padding: 20px;
-            border: 1px solid #ccc;
+            max-width: 400px;
             background-color: #fff;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #007BFF;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #555;
         }
 
         button {
             padding: 10px 20px;
-            margin: 10px;
+            margin-top: 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             background-color: #007BFF;
             color: white;
             font-size: 16px;
+            transition: background-color 0.3s;
         }
 
         button:hover {
@@ -142,59 +153,60 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>Welcome to LP-Brand Site - Unauthenticated Space</h1>
-        <p>Please log in to have access to the authenticated features.</p>
-        <button id="loginBtn">Authenticated Space</button>
+        <h1>Welcome to LP-Brand Site</h1>
+        <p>Please log in to access the authenticated features.</p>
+        <button id="loginBtn">Log In</button>
     </div>
 
     <script>
-    document.getElementById('loginBtn').addEventListener('click', function () {
-        // Hardcoded JWT for example purposes
-        const jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQ1Njc4OSIsIm5hbWUiOiJOZWVyYWoiLCJlbWFpbCI6Im5lZXJhai5tQHRlY2htYWhpbmRyYS5jb20ifQ.CQJe4QVJi4s5QvJ0DsRyyZivEZHMMaicNWBY4XeECqo"; // Example JWT
+        document.getElementById('loginBtn').addEventListener('click', function () {
+            // Hardcoded JWT for example purposes
+            const jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQ1Njc4OSIsIm5hbWUiOiJOZWVyYWoiLCJlbWFpbCI6Im5lZXJhai5tQHRlY2htYWhpbmRyYS5jb20ifQ.CQJe4QVJi4s5QvJ0DsRyyZivEZHMMaicNWBY4XeECqo"; // Example JWT
 
-        // Save JWT to local storage
-        localStorage.setItem('jwt', jwt);
+            // Save JWT to local storage
+            localStorage.setItem('jwt', jwt);
 
-        // Redirect to authenticated page
-        window.location.href = 'auth_page.html';
-    });
-</script>
+            // Redirect to authenticated page
+            window.location.href = 'auth_page.html';
+        });
+    </script>
 
-<script type="text/javascript">
-    var cartTotal = 150.00; // Replace with your actual cart total value retrieval logic
+    <script type="text/javascript">
+        var cartTotal = 150.00; // Replace with your actual cart total value retrieval logic
 
-// Send the Page Title using a pageView SDE
-lpTag.sdes.push({
-  "type": "pageView", 
-  "view": {
-    "current": {
-      "url": window.location.href,
-      "title": document.title
-    }
-  }
-});
+        // Send the Page Title using a pageView SDE
+        lpTag.sdes.push({
+            "type": "pageView",
+            "view": {
+                "current": {
+                    "url": window.location.href,
+                    "title": document.title
+                }
+            }
+        });
 
-// Send the Cart Total using a cart SDE
-lpTag.sdes.push({
-  "type": "cart",
-  "total": {
-    "currency": "USD",  // Replace with the appropriate currency code
-    "amount": cartTotal
-  },
-  "products": [
-    // Optionally, you can include individual products here
-    // {
-    //   "name": "Product 1",
-    //   "category": "Category 1",
-    //   "price": 50.00,
-    //   "quantity": 2
-    // }
-  ]
-});
-</script>
+        // Send the Cart Total using a cart SDE
+        lpTag.sdes.push({
+            "type": "cart",
+            "total": {
+                "currency": "USD", // Replace with the appropriate currency code
+                "amount": cartTotal
+            },
+            "products": [
+                // Optionally, you can include individual products here
+                // {
+                //   "name": "Product 1",
+                //   "category": "Category 1",
+                //   "price": 50.00,
+                //   "quantity": 2
+                // }
+            ]
+        });
+    </script>
 
-    
 </body>
+
 </html>
