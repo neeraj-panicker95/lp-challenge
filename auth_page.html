@@ -108,6 +108,18 @@
     <body>
         <script type="text/javascript">
           lpTag.sdes = lpTag.sdes || [];
+
+    // Send the Page Title using a pageView SDE
+        lpTag.sdes.push({
+        "type": "pageView", 
+        "view": {
+        "current": {
+        "url": window.location.href,
+          "title": document.title
+            }}}
+        );
+
+    // Send the Cart Total using a cart SDE
           lpTag.sdes.push(
             {
               "type": "cart", //MANDATORY
